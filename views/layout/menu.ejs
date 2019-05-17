@@ -1,0 +1,35 @@
+<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+<div class="menu_close_container">
+    <div class="menu_close">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<nav class="menu_nav">
+    <ul class="menu_mm">
+    <%if(typeof user !='object'){%>
+    <li class="menu_mm"><a href="/auth/login">Login</a>
+    <%}else{%>
+    <li class="menu_mm"><a href="/auth/view">your profile</a></li>
+    <%}%>
+    </li>
+    <hr>
+        <li class="menu_mm"><a href="/">Home</a></li>
+        <li class="menu_mm"><a href="/courses">Courses</a></li>
+        <%if(typeof user === 'object'){%>
+        <li class="menu_mm"><a href="/auth/logout">Logout</a></li>
+        <%}%>
+    </ul>
+</nav>
+<div class="menu_extra">
+    <div class="menu_phone"><span class="menu_title">author:</span>PhongA</div>
+    <div class="menu_social">
+        <span class="menu_title">follow me</span>
+        <ul>
+            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+</div>
+</div>

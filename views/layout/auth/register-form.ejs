@@ -1,0 +1,32 @@
+               <!-- Register Form -->
+                    <div class="register_form_container">
+                        <div class="register_form_title">Register Free</div>
+                        <form action="/auth/register" id="register_form" class="register_form" method = 'POST'>
+                            <div class="row register_row">
+                                <div class="col-lg-6 register_col">
+                                    <input type="text" class="form_input" placeholder="Name" required="required" name="registerFullname"
+                                    value="<%if(typeof inputData === 'object'){%><%=inputData.fullname%><%}%>">
+                                </div>
+                                <div class="col-lg-6 register_col">
+                                    <input type="email" class="form_input" placeholder="Email" required="required" name="registerEmail"
+                                    value="<%if(typeof inputData === 'object'){%><%=inputData.email%><%}%>">
+                                </div>
+                                <div class="col-lg-6 register_col">
+                                    <input type="text" class="form_input" placeholder="Username" required="required" name="registerUsername"
+                                    value="<%if(typeof inputData === 'object'){%><%=inputData.username%><%}%>">
+                                    <%if(typeof usernameError === 'string' && usernameError.length>0){%>
+                                    <i class="fa fa-exclamation-circle text-danger"> <%=usernameError%></i>
+                                <%}%>
+                                </div>
+                                <div class="col-lg-6 register_col">
+                                    <input type="password" class="form_input" placeholder="Password" required="required" name="registerPassword">
+                                    <%if(typeof passwordError === 'string' && passwordError.length>0){%>
+                                <i class="fa fa-exclamation-circle text-danger"> <%=passwordError%></i>
+                            <%}%>
+                                </div>
+                                <div class="col">
+                                    <button type="submit" class="form_button trans_200">Register now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>

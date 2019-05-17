@@ -1,0 +1,62 @@
+ <header class="header">
+ <div class="top_bar">
+ <div class="top_bar_container">
+     <div class="container">
+         <div class="row">
+             <div class="col">
+                 <div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
+                     <div class="top_bar_right ml-auto">
+                         <!-- Language -->
+                         <!-- Social -->
+                         <div class="top_bar_social">
+                             <span class="top_bar_title social_title">follow me</span>
+                             <ul>
+                                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
+<!-- Header Content -->
+<div class="header_container">
+ <div class="container">
+     <div class="row">
+         <div class="col">
+             <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                 <div class="logo_container mr-auto">
+                     <a href="/">
+                         <div class="logo_text">PhongA</div>
+                     </a>
+                 </div>
+                 <nav class="main_nav_contaner">
+                     <ul class="main_nav">
+                         <li class="active"><a href="/">Home</a></li>
+                         <li><a href="/courses">Courses</a></li>
+                     </ul>
+                 </nav>
+                 <div class="header_content_right ml-auto text-right">
+                     <!-- Hamburger -->
+                     <div class="user">
+                     <a href="<%if(typeof user !=='object'){%>/auth/login<%}else{%>/auth/view<%}%>">
+                     <i class="fa fa-user" aria-hidden="true">
+                     </i>
+                     </a>
+                     </div>
+                     <div class="hamburger menu_mm">
+                         <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+                     </div>
+                 </div>
+
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
+</header>
+ <!-- Top Bar -->
