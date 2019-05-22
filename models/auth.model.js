@@ -23,6 +23,12 @@ usersSchema.methods.isRightPassword = async function(password) {
     return bcrypt.compare(password, this.password);
 }
 
+usersSchema.methods.forgotPassword = async function(hashString) {
+    return bcrypt.hash(hashString, saltRound)
+        .then((hash) => {
+            this.password = hash;
+        });
+}
 
 let authModel = mongoose.model('authModel', usersSchema, 'users-data');
 
