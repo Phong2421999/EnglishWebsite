@@ -17,7 +17,7 @@ router.get('/view', authMiddleware.requireLogin, authController.viewUser);
 
 router.get('/verify/:hash', authController.verify);
 
-router.get('/forgotpassword/:hash', authController.resetPassword);
+// router.get('/forgotpassword/:hash', authController.resetPassword);
 
 router.post('/login', authController.postLogin);
 
