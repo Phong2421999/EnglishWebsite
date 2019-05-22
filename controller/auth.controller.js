@@ -118,7 +118,9 @@ module.exports.postRegister = async function(req, res) {
             verifyUser.input(newUser._id)
             verifyUser.save();
             emailFunctions.sendMailVerify(newUser.email, verifyUser.hash, res);
-            res.redirect('/auth/login');
+            res.render('notify.ejs', {
+                notify: "Please check your email to active your account"
+            });
         })
         .catch((err) => {
             console.log(err);
@@ -134,6 +136,9 @@ module.exports.postForgotPassword = async function(req, res) {
     }
     let forgotPasswordUser = await authModel.findOne({ username: inputUsername, email: inputEmail });
     if (forgotPasswordUser) {
+        let verifyForgotPasswordUser = new verifyUserModel();
+        console.log(forgotPasswordUser._id);
+        verifyForgotPasswordUser.input(forgotPasswordUser._id);
         res.render('notify.ejs', {
             notify: "Please check your mail to reset your password!"
         });
