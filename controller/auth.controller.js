@@ -2,7 +2,6 @@ const authModel = require('../models/auth.model');
 const verifyUserModel = require('../models/verify-users.model');
 const emailFunctions = require('../functions/email.functions');
 
-
 module.exports.login = function(req, res) {
     res.render('auth/login.ejs');
 }
@@ -11,7 +10,6 @@ module.exports.login = function(req, res) {
 module.exports.register = function(req, res) {
     res.render('auth/register.ejs');
 }
-
 
 module.exports.forgotPassword = function(req, res) {
     res.render('auth/forgot-password.ejs');
@@ -112,12 +110,13 @@ module.exports.postRegister = async function(req, res) {
     }
     let newUser = new authModel(inputData);
     let verifyUser = new verifyUserModel();
+    let password = newUser.password;
     newUser.hashPassword()
         .then(() => {
             newUser.save();
             verifyUser.input(newUser._id)
             verifyUser.save();
-            emailFunctions.sendMailVerify(newUser.email, verifyUser.hash, res);
+            emailFunctions.sendMailVerify(newUser.email, verifyUser.hash, password, res);
             res.render('notify.ejs', {
                 notify: "Please check your email to active your account"
             });
@@ -136,12 +135,25 @@ module.exports.postForgotPassword = async function(req, res) {
     }
     let forgotPasswordUser = await authModel.findOne({ username: inputUsername, email: inputEmail });
     if (forgotPasswordUser) {
-        let verifyForgotPasswordUser = new verifyUserModel();
-        console.log(forgotPasswordUser._id);
-        verifyForgotPasswordUser.input(forgotPasswordUser._id);
-        res.render('notify.ejs', {
-            notify: "Please check your mail to reset your password!"
-        });
+        if (forgotPasswordUser.active == false) {
+            res.render('notify.ejs', {
+                notify: "Please check your mail to active your account and check your password!"
+            });
+            return;
+        }
+        let randomPassword = Math.random().toString(36).substring(5);
+        forgotPasswordUser.forgotPassword(randomPassword)
+            .then(() => {
+                emailFunctions.sendMailForgotPassword(forgotPasswordUser.email, randomPassword, res);
+                forgotPasswordUser.save();
+                res.render('notify.ejs', {
+                    notify: "Please check your mail to reset your password!"
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
     } else {
         res.render('auth/forgot-password.ejs', {
             forgotPasswordError: "Username or Email not found",

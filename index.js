@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const expressSession = require('express-session');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 
 const authRoutes = require('./routes/auth.routes');
 const authMiddleware = require('./middleware/auth.middleware');
@@ -22,7 +22,7 @@ const session = expressSession({
     cookie: {}
 });
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
