@@ -9,10 +9,10 @@ module.exports.sendMailVerify = function(email, hash, password, res) {
         }
     });
     const mailOptions = {
-        from: 'PhongA mailbox', // sender address
+        from: 'AirPlaneTicket PhongDuy mailbox', // sender address
         to: email, // list of receivers
-        subject: 'Verify mail from PhongA website',
-        html: '<p><b>Please click this link to verify your account:</b> http://localhost:3000/auth/verify/' + hash + '</p>\n<i>Your password: </i>' + '<b>' + password + '</b>'
+        subject: 'Verify mail from AirPlaneTicket PhongDuy website',
+        html: '<p><b>Please click this link to verify your account:</b> http://localhost:' + process.env.PORT + '/auth/verify/' + hash + '</p>\n<i>Your password: </i>' + '<b>' + password + '</b>'
     };
     transporter.sendMail(mailOptions, function(err, info) {
         if (err)
@@ -30,9 +30,9 @@ module.exports.sendMailForgotPassword = function(email, password, res) {
         }
     });
     const mailOptions = {
-        from: 'PhongA mailbox', // sender address
+        from: 'AirPlaneTicket PhongDuy mailbox', // sender address
         to: email, // list of receivers
-        subject: 'Respone your reset password request from PhongA website', // Subject line
+        subject: 'Respone your reset password request from AirPlaneTicket PhongDuy website', // Subject line
         html: '<p><b>Your new password: </b>' + password + '</p>\n<b>You can change your password after you have logined</b>' // plain text body
     };
     transporter.sendMail(mailOptions, function(err, info) {
