@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Course</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Lingua project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%include ../js-css/css.ejs%>
+<link rel="stylesheet" type="text/css" href="/styles/course.css">
+<link rel="stylesheet" type="text/css" href="/styles/course_responsive.css">
+</head>
+
+    <div class="super_container">
+        <!-- Header -->
+        <%include ../layout/header.ejs%>
+        <%include ../layout/menu.ejs%>
+        <%include ../layout/course/link.ejs%>
+        <%include ../layout/course/intro.ejs%>
+        <div class="course">
+            <div class="course_top"></div>
+                <div class="container">
+                    <div class="row row-lg-eq-height">
+                        <div class="col-lg-9">
+                            <div class="tab_panels">
+                                <%include ../layout/course/tabs.ejs%>
+                                <%include ../layout/course/description.ejs%>
+                                <%include ../layout/course/lession.ejs%>
+                            </div>
+                        </div>
+                    <%include ../layout/course/sidebar.ejs%>
+                </div>
+            </div>
+        </div>
+        <%include ../layout/footer.ejs%>
+    </div>
+        <%include ../js-css/js.ejs%>
+        <script src="plugins/parallax-js-master/parallax.min.js"></script>
+        <script src="plugins/progressbar/progressbar.min.js"></script>
+        <script src="js/course.js"></script>
+<body>
+</body>
+</html>

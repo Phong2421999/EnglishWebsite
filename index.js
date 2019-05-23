@@ -7,6 +7,7 @@ const expressSession = require('express-session');
 // const morgan = require('morgan');
 
 const authRoutes = require('./routes/auth.routes');
+const courseRoutes = require('./routes/course.routes');
 const authMiddleware = require('./middleware/auth.middleware');
 
 
@@ -23,9 +24,11 @@ const session = expressSession({
 });
 
 // app.use(morgan('dev'));
+app.use('/', express.static('public'));
+app.use('/courses', express.static('public'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
 app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(session);
 app.use(authMiddleware.hasSessionNotFoundUser);
@@ -35,6 +38,7 @@ app.use(function(req, res, next) {
     next();
 })
 app.use('/auth', authRoutes);
+app.use('/courses/course', courseRoutes);
 
 
 app.set('view engine', 'ejs');
@@ -43,7 +47,8 @@ app.set('views', './views', './views/auth');
 
 app.get('/', (req, res) => {
     res.render('index.ejs');
-})
+});
+
 
 //route for 404 error
 app.use((req, res, next) => {

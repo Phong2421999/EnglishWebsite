@@ -1,31 +1,28 @@
 {
-  "name": "englishwordsproject",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^3.0.5",
-    "body-parser": "^1.18.3",
-    "cookie-parser": "^1.4.4",
-    "dotenv": "^7.0.0",
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
-    "express-session": "^1.16.1",
-    "lowdb": "^1.0.0",
-    "md5": "^2.2.1",
-    "mongoose": "^5.4.19",
-    "multer": "^1.4.1",
-    "nodemailer": "^6.0.0",
-    "puppeteer": "^1.13.0",
-    "shortid": "^2.2.14"
-  },
-  "description": "",
-  "devDependencies": {
-    "nodemon": "^1.19.0"
-  }
+    "name": "englishwordsproject",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^3.0.5",
+        "body-parser": "^1.18.3",
+        "cookie-parser": "^1.4.4",
+        "dotenv": "^7.0.0",
+        "ejs": "^2.6.1",
+        "express": "^4.16.4",
+        "express-session": "^1.16.1",
+        "md5": "^2.2.1",
+        "mongoose": "^5.4.19",
+        "multer": "^1.4.1",
+        "nodemailer": "^6.0.0"
+    },
+    "description": "",
+    "devDependencies": {
+        "nodemon": "^1.19.0"
+    }
 }
