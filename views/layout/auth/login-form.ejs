@@ -5,9 +5,6 @@
                 <form action="/auth/login" id="register_form" class="register_form" method = "POST">
                     <div class="row register_row">
                         <div class="col-lg-12 register_col">
-                            <%if(typeof activeError === "string" && activeError){%>
-                                <p class="alert alert-warning"><%=activeError%></p>
-                            <%}%>
                             <input type="text" class="form_input" placeholder="Username" required="required" name="loginUsername"
                             value="<%if(typeof inputData === 'object'){%><%=inputData.username%><%}%>">
                             <%if(typeof usernameError === 'string' && usernameError.length>0){%>

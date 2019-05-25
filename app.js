@@ -8,6 +8,7 @@ const expressSession = require('express-session');
 
 const authRoutes = require('./routes/auth.routes');
 const courseRoutes = require('./routes/course.routes');
+const coursesRoutes = require('./routes/courses.routes');
 const authMiddleware = require('./middleware/auth.middleware');
 
 
@@ -38,12 +39,10 @@ app.use(function(req, res, next) {
     next();
 })
 app.use('/auth', authRoutes);
-app.use('/courses/course', courseRoutes);
-
-
+app.use('/courses/course', authMiddleware.requireLogin, courseRoutes);
+app.use('/courses', authMiddleware.requireLogin, coursesRoutes);
 app.set('view engine', 'ejs');
 app.set('views', './views', './views/auth');
-
 
 app.get('/', (req, res) => {
     res.render('index.ejs');

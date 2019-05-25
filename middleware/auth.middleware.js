@@ -1,13 +1,14 @@
-const authModel = require('../models/auth.model');
-
 module.exports.requireLogin = async function(req, res, next) {
-    if (!req.session.user && !req.cookies.userSessionId)
-        res.redirect('/auth/login');
-    res.locals.user = req.session.user;
+    if (!req.session.user && !req.cookies.userSessionId) {
+        res.render('notify.ejs', {
+            notify: 'you must login to use this fearture!'
+        })
+        return;
+    }
     next();
 }
 
-module.exports.notRequireLogin = function(req, res, next) {
+module.exports.Loginned = function(req, res, next) {
     if (req.session.user && req.signedCookies.userSessionId)
         res.redirect('/');
     next();
