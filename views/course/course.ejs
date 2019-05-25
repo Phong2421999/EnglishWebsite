@@ -2,10 +2,6 @@
 <html lang="en">
 <head>
 <title>Course</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Lingua project">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <%include ../js-css/css.ejs%>
 <link rel="stylesheet" type="text/css" href="/styles/course.css">
 <link rel="stylesheet" type="text/css" href="/styles/course_responsive.css">
@@ -15,7 +11,7 @@
         <!-- Header -->
         <%include ../layout/header.ejs%>
         <%include ../layout/menu.ejs%>
-        <%include ../layout/course/link.ejs%>
+        <%include ../layout/link.ejs%>
         <%include ../layout/course/intro.ejs%>
         <div class="course">
             <div class="course_top"></div>
@@ -29,6 +25,11 @@
                             </div>
                         </div>
                     <%include ../layout/course/sidebar.ejs%>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="load_more_button"><a href="#">load more</a></div>
+                    </div>
                 </div>
             </div>
         </div>
